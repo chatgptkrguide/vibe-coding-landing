@@ -67,13 +67,13 @@ const testimonials: Testimonial[] = [
 export default function Testimonials(): React.ReactElement {
   return (
     <section className="bg-zinc-950 py-20">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <h2 className="text-4xl font-black text-center mb-4">수강생 후기</h2>
         <p className="text-zinc-400 text-center mb-12">
           바이브 코딩으로 인생이 바뀐 사람들
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.name}

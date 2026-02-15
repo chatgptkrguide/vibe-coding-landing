@@ -57,7 +57,7 @@ export default function FAQ(): React.ReactElement {
 
   return (
     <section className="bg-zinc-950 py-20">
-      <div className="max-w-3xl mx-auto px-6">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <h2 className="text-4xl font-black text-center mb-12">
           자주 묻는 질문
         </h2>

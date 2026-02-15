@@ -58,12 +58,12 @@ const targetGroups: TargetGroup[] = [
 export default function Target(): React.ReactElement {
   return (
     <section id="target" className="bg-black py-20">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <h2 className="text-4xl font-black text-center mb-12">
           이런 분께 추천합니다
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="space-y-6">
           {targetGroups.map((group) => (
             <div
               key={group.title}

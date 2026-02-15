@@ -133,7 +133,7 @@ export default function Pricing(): React.ReactElement {
 
   return (
     <section id="pricing" className="bg-black py-20">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <h2 className="text-4xl font-black text-center">수강료</h2>
         <p className="text-zinc-400 text-center mt-4">
           지금이 가장 저렴한 가격입니다
@@ -152,7 +152,7 @@ export default function Pricing(): React.ReactElement {
         </div>
 
         {/* Pricing Plans */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-12">
+        <div className="space-y-6 mt-12">
           {plans.map((plan) => (
             <div
               key={plan.id}

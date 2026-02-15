@@ -41,7 +41,7 @@ const benefits: BenefitCard[] = [
 export default function Benefits(): React.ReactElement {
   return (
     <section className="bg-black py-20">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <h2 className="text-4xl font-black text-center mb-12">
           바이브 코딩으로 얻는 것
         </h2>

@@ -4,7 +4,7 @@ export default function Hero(): React.ReactElement {
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-yellow-500/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="relative z-10 flex flex-col items-center text-center max-w-5xl mx-auto">
+      <div className="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto px-4 sm:px-6">
         {/* Badge */}
         <span className="inline-block bg-zinc-800 px-3 py-1.5 rounded text-sm text-zinc-300 mb-8 animate-fade-in">
           2026년 3월 개강
@@ -12,13 +12,13 @@ export default function Hero(): React.ReactElement {
 
         {/* Main title */}
         <h1 className="animate-fade-in-up">
-          <span className="block text-4xl sm:text-6xl lg:text-8xl font-black leading-tight">
+          <span className="block text-3xl sm:text-5xl font-black leading-tight">
             코드 한 줄 몰라도
           </span>
-          <span className="block text-4xl sm:text-6xl lg:text-8xl font-black leading-tight mt-2">
+          <span className="block text-3xl sm:text-5xl font-black leading-tight mt-2">
             AI로 프로덕트를 만드는
           </span>
-          <span className="block text-4xl sm:text-6xl lg:text-8xl font-black leading-tight mt-2 text-yellow-500">
+          <span className="block text-3xl sm:text-5xl font-black leading-tight mt-2 text-yellow-500">
             바이브 코딩 부트캠프
           </span>
         </h1>

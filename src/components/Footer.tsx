@@ -12,7 +12,7 @@ const footerLinks: FooterLink[] = [
 export default function Footer(): React.ReactElement {
   return (
     <footer className="bg-zinc-950 border-t border-zinc-800 py-12">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8">
           <div>
             <span className="font-black text-xl text-white">VIBE CODING</span>

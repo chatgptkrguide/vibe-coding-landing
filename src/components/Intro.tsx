@@ -1,7 +1,7 @@
 export default function Intro(): React.ReactElement {
   return (
-    <section className="bg-zinc-950 py-20 px-6">
-      <div className="max-w-4xl mx-auto">
+    <section className="bg-zinc-950 py-20">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
         {/* Section title */}
         <div className="mb-12 animate-fade-in">
           <h2 className="text-3xl font-black inline-block">

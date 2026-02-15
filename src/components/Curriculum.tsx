@@ -65,7 +65,7 @@ const weeks: WeekItem[] = [
 export default function Curriculum(): React.ReactElement {
   return (
     <section id="curriculum" className="bg-zinc-950 py-20">
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <h2 className="text-4xl font-black text-center mb-4">
           4주 커리큘럼
         </h2>
