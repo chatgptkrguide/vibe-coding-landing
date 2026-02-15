@@ -6,7 +6,7 @@ interface FooterLink {
 const footerLinks: FooterLink[] = [
   { label: "이용약관", href: "#" },
   { label: "개인정보처리방침", href: "#" },
-  { label: "환불정책", href: "/policy" },
+  { label: "환불정책", href: "#" },
 ];
 
 export default function Footer(): React.ReactElement {
