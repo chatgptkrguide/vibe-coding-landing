@@ -27,62 +27,63 @@ interface PricingPlan {
   borderClassName: string;
 }
 
+// [마감일 수정 필요]
 const DEADLINE = new Date("2026-03-01T00:00:00+09:00");
 
 const plans: PricingPlan[] = [
   {
     id: "standard",
-    name: "일반",
-    price: "₩490,000",
+    name: "[플랜1 이름 - 예: 일반]",
+    price: "[플랜1 가격 - 예: ₩490,000]",
     features: [
-      { text: "4주 라이브 수업 (12시간)" },
-      { text: "1:1 코드 리뷰 (주 1회)" },
-      { text: "평생 수강 녹화본 제공" },
-      { text: "수료 후 커뮤니티 영구 접근" },
+      { text: "[플랜1 포함사항 1]" },
+      { text: "[플랜1 포함사항 2]" },
+      { text: "[플랜1 포함사항 3]" },
+      { text: "[플랜1 포함사항 4]" },
     ],
-    ctaText: "일반 신청하기",
+    ctaText: "[플랜1 CTA - 예: 일반 신청하기]",
     featured: false,
     borderClassName: "border border-zinc-800",
   },
   {
     id: "earlybird",
-    name: "얼리버드",
+    name: "[플랜2 이름 - 예: 얼리버드]",
     badge: {
-      text: "얼리버드 한정",
+      text: "[플랜2 배지 - 예: 얼리버드 한정]",
       className:
         "bg-black text-yellow-500 text-xs font-black px-3 py-1 rounded-full",
     },
-    originalPrice: "₩490,000",
-    price: "₩290,000",
-    discount: "41% OFF",
+    originalPrice: "[원래 가격 - 예: ₩490,000]",
+    price: "[할인 가격 - 예: ₩290,000]",
+    discount: "[할인율 - 예: 41% OFF]",
     features: [
-      { text: "4주 라이브 수업 (12시간)" },
-      { text: "1:1 코드 리뷰 (주 1회)" },
-      { text: "평생 수강 녹화본 제공" },
-      { text: "수료 후 커뮤니티 영구 접근" },
-      { text: "얼리버드 전용 보너스 세션" },
+      { text: "[플랜2 포함사항 1]" },
+      { text: "[플랜2 포함사항 2]" },
+      { text: "[플랜2 포함사항 3]" },
+      { text: "[플랜2 포함사항 4]" },
+      { text: "[플랜2 포함사항 5 - 추가 혜택]" },
     ],
-    ctaText: "얼리버드로 신청하기",
+    ctaText: "[플랜2 CTA - 예: 얼리버드로 신청하기]",
     featured: true,
     borderClassName: "border-4 border-white",
   },
   {
     id: "premium",
-    name: "프리미엄",
+    name: "[플랜3 이름 - 예: 프리미엄]",
     badge: {
-      text: "PREMIUM",
+      text: "[플랜3 배지 - 예: PREMIUM]",
       className:
         "bg-purple-500/20 text-purple-400 text-xs font-black px-3 py-1 rounded-full",
     },
-    price: "₩890,000",
+    price: "[플랜3 가격 - 예: ₩890,000]",
     features: [
-      { text: "일반 플랜의 모든 혜택" },
-      { text: "1:1 멘토링 (주 2회, 총 8회)" },
-      { text: "프로젝트 기획 컨설팅" },
-      { text: "배포 후 1개월 유지보수 지원" },
-      { text: "수료증 발급" },
+      { text: "[플랜3 포함사항 1]" },
+      { text: "[플랜3 포함사항 2]" },
+      { text: "[플랜3 포함사항 3]" },
+      { text: "[플랜3 포함사항 4]" },
+      { text: "[플랜3 포함사항 5]" },
     ],
-    ctaText: "프리미엄 신청하기",
+    ctaText: "[플랜3 CTA - 예: 프리미엄 신청하기]",
     featured: false,
     borderClassName: "border border-zinc-800",
   },
@@ -135,10 +136,10 @@ export default function Pricing(): React.ReactElement {
     <section id="pricing" className="relative py-24 max-w-3xl mx-auto px-6">
       <div className="text-center mb-16">
         <h2 className="text-4xl sm:text-6xl font-black mb-6 uppercase text-white">
-          수강료
+          [수강료 섹션 제목]
         </h2>
         <p className="text-zinc-400 text-lg">
-          지금이 가장 저렴한 가격입니다
+          [수강료 부제]
         </p>
       </div>
 
@@ -243,7 +244,7 @@ export default function Pricing(): React.ReactElement {
       </div>
 
       <p className="text-zinc-500 text-sm text-center mt-10">
-        카드 결제 / 계좌이체 가능 | 수강 시작 7일 전까지 100% 환불
+        [결제 수단 및 환불 정책 안내]
       </p>
     </section>
   );

@@ -5,26 +5,18 @@ export default function Intro(): React.ReactElement {
         {/* Body text */}
         <div className="text-center mb-16">
           <p className="text-[1.5rem] sm:text-4xl font-black leading-[1.8] sm:leading-[2.4] text-white break-keep">
-            2025년,{" "}
+            [소개 문단 - 핵심 메시지를 강조 텍스트와 함께 작성]
+            <br />
             <span className="bg-yellow-400/20 text-yellow-500 px-1">
-              코딩의 패러다임
+              [강조할 키워드1]
             </span>
-            이 바뀌었습니다.
-            <br />
-            더 이상 프로그래밍 언어를 배울 필요가 없습니다.
             <br />
             <br />
-            AI에게{" "}
+            [소개 문단 두 번째 파트]
+            <br />
             <span className="bg-yellow-400/20 text-yellow-500 px-1">
-              자연어로 지시
+              [강조할 키워드2]
             </span>
-            하면,
-            <br />
-            AI가 코드를 작성합니다.
-            <br />
-            이것이 &lsquo;
-            <span className="text-yellow-500 font-black">바이브 코딩</span>
-            &rsquo;입니다.
           </p>
         </div>
 
@@ -32,26 +24,26 @@ export default function Intro(): React.ReactElement {
         <div className="grid grid-cols-3 gap-6 mb-16 max-w-3xl mx-auto">
           <div className="text-center bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
             <p className="text-4xl sm:text-5xl font-black text-yellow-500">
-              4주
+              [수치1]
             </p>
             <p className="text-zinc-400 mt-2 text-sm sm:text-base">
-              완성 기간
+              [수치1 설명]
             </p>
           </div>
           <div className="text-center bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
             <p className="text-4xl sm:text-5xl font-black text-yellow-500">
-              92%
+              [수치2]
             </p>
             <p className="text-zinc-400 mt-2 text-sm sm:text-base">
-              서비스 런칭률
+              [수치2 설명]
             </p>
           </div>
           <div className="text-center bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
             <p className="text-4xl sm:text-5xl font-black text-yellow-500">
-              0줄
+              [수치3]
             </p>
             <p className="text-zinc-400 mt-2 text-sm sm:text-base">
-              직접 작성 코드
+              [수치3 설명]
             </p>
           </div>
         </div>
@@ -62,7 +54,7 @@ export default function Intro(): React.ReactElement {
             href="#curriculum"
             className="cta-button inline-block text-xl sm:text-2xl font-black py-6 px-12 rounded-2xl"
           >
-            커리큘럼 확인하기 &rarr;
+            [CTA 버튼 문구] &rarr;
           </a>
         </div>
       </div>

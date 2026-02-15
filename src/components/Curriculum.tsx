@@ -10,53 +10,53 @@ interface WeekItem {
 const weeks: WeekItem[] = [
   {
     week: 1,
-    title: "AI 도구 세팅 & 첫 번째 페이지",
+    title: "[1주차 제목]",
     items: [
-      "Claude, Cursor, v0 환경 설정",
-      "프롬프트 엔지니어링 기초",
-      "첫 번째 랜딩 페이지 만들기",
-      "Next.js + Tailwind 기본 구조 이해",
+      "[1주차 학습내용 1]",
+      "[1주차 학습내용 2]",
+      "[1주차 학습내용 3]",
+      "[1주차 학습내용 4]",
     ],
-    result: "나만의 랜딩 페이지 완성",
+    result: "[1주차 결과물]",
     markerColor: "bg-yellow-500",
     textColor: "text-yellow-500",
   },
   {
     week: 2,
-    title: "데이터베이스 & 사용자 인증",
+    title: "[2주차 제목]",
     items: [
-      "Supabase로 데이터베이스 구축",
-      "회원가입/로그인 기능 구현",
-      "CRUD 기능 만들기",
-      "AI로 API 설계하기",
+      "[2주차 학습내용 1]",
+      "[2주차 학습내용 2]",
+      "[2주차 학습내용 3]",
+      "[2주차 학습내용 4]",
     ],
-    result: "회원 기능이 있는 웹앱",
+    result: "[2주차 결과물]",
     markerColor: "bg-blue-500",
     textColor: "text-blue-500",
   },
   {
     week: 3,
-    title: "핵심 기능 개발 & AI 통합",
+    title: "[3주차 제목]",
     items: [
-      "OpenAI API 연동",
-      "결제 시스템 연동 (Stripe/토스)",
-      "이메일 알림 기능",
-      "실시간 데이터 처리",
+      "[3주차 학습내용 1]",
+      "[3주차 학습내용 2]",
+      "[3주차 학습내용 3]",
+      "[3주차 학습내용 4]",
     ],
-    result: "핵심 기능이 동작하는 서비스",
+    result: "[3주차 결과물]",
     markerColor: "bg-green-500",
     textColor: "text-green-500",
   },
   {
     week: 4,
-    title: "배포 & 런칭",
+    title: "[4주차 제목]",
     items: [
-      "Vercel로 프로덕션 배포",
-      "도메인 연결 & SEO 최적화",
-      "성능 최적화 & 버그 수정",
-      "런칭 전략 & 마케팅 기초",
+      "[4주차 학습내용 1]",
+      "[4주차 학습내용 2]",
+      "[4주차 학습내용 3]",
+      "[4주차 학습내용 4]",
     ],
-    result: "실제 서비스 런칭 완료",
+    result: "[4주차 결과물]",
     markerColor: "bg-red-500",
     textColor: "text-red-500",
   },
@@ -70,12 +70,12 @@ export default function Curriculum(): React.ReactElement {
     >
       <div className="max-w-4xl mx-auto px-6">
         <h2 className="text-3xl sm:text-5xl font-black text-center mb-16 uppercase">
-          4주 커리큘럼
+          [커리큘럼 섹션 제목]
         </h2>
 
         <div className="flex flex-col gap-6 mb-24">
           <p className="text-center text-zinc-400 text-lg mb-8">
-            매주 토요일 오전 10시 ~ 오후 1시 (3시간)
+            [수업 일정 안내 - 예: 매주 토요일 오전 10시 ~ 오후 1시]
           </p>
 
           {weeks.map((week) => (
