@@ -66,29 +66,28 @@ const testimonials: Testimonial[] = [
 
 export default function Testimonials(): React.ReactElement {
   return (
-    <section className="bg-zinc-950 py-20">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        <h2 className="text-4xl font-black text-center mb-4">수강생 후기</h2>
-        <p className="text-zinc-400 text-center mb-12">
-          바이브 코딩으로 인생이 바뀐 사람들
-        </p>
+    <section className="py-24 bg-zinc-900 border-b border-zinc-800">
+      <div className="max-w-3xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-lg sm:text-2xl font-medium mb-4 leading-tight text-zinc-400">
+            수강생 후기
+          </h2>
+          <p className="text-3xl sm:text-5xl font-black text-white">
+            바이브 코딩으로
+            <br />
+            인생이 바뀐 사람들
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="flex flex-col gap-6">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.name}
-              className="bg-zinc-900 border border-zinc-800 p-6 rounded-2xl"
+              className="bg-zinc-800 border border-zinc-700 p-6 sm:p-8 rounded-3xl"
             >
-              <p className="text-zinc-700 text-4xl leading-none">&ldquo;</p>
-              <p className="text-zinc-300 text-sm leading-relaxed mt-2">
-                {testimonial.quote}
-              </p>
-              <span className="mt-4 inline-block bg-yellow-500/10 text-yellow-500 text-xs px-2 py-1 rounded">
-                {testimonial.tag}
-              </span>
-              <div className="flex items-center gap-3 mt-4 pt-4 border-t border-zinc-800">
+              <div className="flex items-center gap-3 mb-5">
                 <div
-                  className={`bg-gradient-to-br ${testimonial.gradient} rounded-full w-12 h-12 flex items-center justify-center text-white font-bold text-sm`}
+                  className={`bg-gradient-to-br ${testimonial.gradient} rounded-[14px] w-10 h-10 flex items-center justify-center text-white font-bold text-sm`}
                 >
                   {testimonial.initial}
                 </div>
@@ -99,6 +98,12 @@ export default function Testimonials(): React.ReactElement {
                   <p className="text-zinc-500 text-xs">{testimonial.role}</p>
                 </div>
               </div>
+              <p className="text-zinc-300 text-base sm:text-lg leading-relaxed mb-4">
+                &ldquo;{testimonial.quote}&rdquo;
+              </p>
+              <span className="inline-block bg-yellow-500/10 text-yellow-500 text-xs font-bold px-3 py-1.5 rounded-full">
+                {testimonial.tag}
+              </span>
             </div>
           ))}
         </div>

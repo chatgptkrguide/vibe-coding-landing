@@ -15,7 +15,7 @@ const targetGroups: TargetGroup[] = [
     badge: "강력 추천",
     badgeStyle: "bg-green-500/20 text-green-500",
     title: "기획자 / PM / 마케터",
-    borderColor: "border-green-500",
+    borderColor: "border-green-600",
     iconColor: "text-green-500",
     icon: "check",
     items: [
@@ -29,7 +29,7 @@ const targetGroups: TargetGroup[] = [
     badge: "추천",
     badgeStyle: "bg-blue-500/20 text-blue-500",
     title: "창업자 / 프리랜서",
-    borderColor: "border-blue-500",
+    borderColor: "border-blue-600",
     iconColor: "text-blue-500",
     icon: "check",
     items: [
@@ -43,8 +43,8 @@ const targetGroups: TargetGroup[] = [
     badge: "비추천",
     badgeStyle: "bg-zinc-700/50 text-zinc-400",
     title: "이런 분은 맞지 않아요",
-    borderColor: "border-zinc-700",
-    iconColor: "text-zinc-500",
+    borderColor: "border-red-600",
+    iconColor: "text-red-500",
     icon: "x",
     items: [
       "전문 개발자로 커리어를 쌓고 싶은 분",
@@ -57,45 +57,50 @@ const targetGroups: TargetGroup[] = [
 
 export default function Target(): React.ReactElement {
   return (
-    <section id="target" className="bg-black py-20">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        <h2 className="text-4xl font-black text-center mb-12">
+    <section
+      id="target"
+      className="py-24 max-w-3xl mx-auto px-6 bg-black border-b border-zinc-900"
+    >
+      <div className="text-center mb-16">
+        <h2 className="text-4xl sm:text-5xl font-black mb-6 text-white">
           이런 분께 추천합니다
         </h2>
+      </div>
 
-        <div className="space-y-6">
-          {targetGroups.map((group) => (
-            <div
-              key={group.title}
-              className={`bg-zinc-900 border-t-4 ${group.borderColor} p-6 rounded-2xl`}
+      <div className="flex flex-col gap-10">
+        {targetGroups.map((group) => (
+          <div
+            key={group.title}
+            className={`bg-zinc-900/30 border-2 ${group.borderColor} rounded-2xl p-8`}
+          >
+            <span
+              className={`${group.badgeStyle} text-xs font-bold px-3 py-1 rounded-full`}
             >
-              <span
-                className={`${group.badgeStyle} text-xs font-bold px-2 py-1 rounded`}
-              >
-                {group.badge}
-              </span>
-              <h3 className="text-xl font-bold text-white mt-4 mb-4">
-                {group.title}
-              </h3>
-              <ul className="space-y-3">
-                {group.items.map((item) => (
-                  <li key={item} className="flex items-start gap-2">
-                    {group.icon === "check" ? (
-                      <Check
-                        className={`w-5 h-5 ${group.iconColor} flex-shrink-0 mt-0.5`}
-                      />
-                    ) : (
-                      <X
-                        className={`w-5 h-5 ${group.iconColor} flex-shrink-0 mt-0.5`}
-                      />
-                    )}
-                    <span className="text-zinc-300 text-sm">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+              {group.badge}
+            </span>
+            <h3 className="text-2xl font-black text-white mt-4 mb-6">
+              {group.title}
+            </h3>
+            <ul className="space-y-4">
+              {group.items.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  {group.icon === "check" ? (
+                    <Check
+                      className={`w-5 h-5 ${group.iconColor} flex-shrink-0 mt-0.5`}
+                    />
+                  ) : (
+                    <X
+                      className={`w-5 h-5 ${group.iconColor} flex-shrink-0 mt-0.5`}
+                    />
+                  )}
+                  <span className="text-zinc-300 text-base sm:text-lg">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </section>
   );

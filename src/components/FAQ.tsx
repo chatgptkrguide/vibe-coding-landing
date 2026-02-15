@@ -56,20 +56,23 @@ export default function FAQ(): React.ReactElement {
   }
 
   return (
-    <section className="bg-zinc-950 py-20">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        <h2 className="text-4xl font-black text-center mb-12">
+    <section className="py-24 bg-zinc-950 border-t border-zinc-900">
+      <div className="max-w-4xl mx-auto px-6">
+        <h2 className="text-3xl font-black mb-10 text-center text-white">
           자주 묻는 질문
         </h2>
 
         <div className="space-y-4">
           {faqItems.map((item, index) => (
-            <div key={item.id} className="rounded-xl overflow-hidden">
+            <div
+              key={item.id}
+              className="bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden"
+            >
               <button
                 onClick={() => handleToggle(index)}
-                className="w-full bg-zinc-900 p-5 flex justify-between items-center cursor-pointer text-left"
+                className="w-full p-6 sm:p-8 flex justify-between items-center cursor-pointer text-left"
               >
-                <span className="text-white font-semibold pr-4">
+                <span className="text-white font-bold text-base sm:text-lg pr-4">
                   {item.question}
                 </span>
                 <ChevronDown
@@ -86,7 +89,7 @@ export default function FAQ(): React.ReactElement {
                 }`}
               >
                 <div className="overflow-hidden">
-                  <p className="p-5 text-zinc-400 bg-zinc-900/50 leading-relaxed">
+                  <p className="px-6 sm:px-8 pb-6 sm:pb-8 text-zinc-400 text-base sm:text-lg leading-relaxed">
                     {item.answer}
                   </p>
                 </div>

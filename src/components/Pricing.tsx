@@ -23,7 +23,7 @@ interface PricingPlan {
   discount?: string;
   features: PlanFeature[];
   ctaText: string;
-  ctaClassName: string;
+  featured: boolean;
   borderClassName: string;
 }
 
@@ -31,11 +31,26 @@ const DEADLINE = new Date("2026-03-01T00:00:00+09:00");
 
 const plans: PricingPlan[] = [
   {
+    id: "standard",
+    name: "일반",
+    price: "₩490,000",
+    features: [
+      { text: "4주 라이브 수업 (12시간)" },
+      { text: "1:1 코드 리뷰 (주 1회)" },
+      { text: "평생 수강 녹화본 제공" },
+      { text: "수료 후 커뮤니티 영구 접근" },
+    ],
+    ctaText: "일반 신청하기",
+    featured: false,
+    borderClassName: "border border-zinc-800",
+  },
+  {
     id: "earlybird",
     name: "얼리버드",
     badge: {
       text: "얼리버드 한정",
-      className: "bg-yellow-500 text-black text-xs font-bold px-3 py-1 rounded-full",
+      className:
+        "bg-black text-yellow-500 text-xs font-black px-3 py-1 rounded-full",
     },
     originalPrice: "₩490,000",
     price: "₩290,000",
@@ -48,30 +63,16 @@ const plans: PricingPlan[] = [
       { text: "얼리버드 전용 보너스 세션" },
     ],
     ctaText: "얼리버드로 신청하기",
-    ctaClassName: "cta-button w-full text-center",
-    borderClassName: "border-2 border-yellow-500",
-  },
-  {
-    id: "standard",
-    name: "일반",
-    price: "₩490,000",
-    features: [
-      { text: "4주 라이브 수업 (12시간)" },
-      { text: "1:1 코드 리뷰 (주 1회)" },
-      { text: "평생 수강 녹화본 제공" },
-      { text: "수료 후 커뮤니티 영구 접근" },
-    ],
-    ctaText: "일반 신청하기",
-    ctaClassName:
-      "w-full py-4 bg-zinc-700 hover:bg-zinc-600 text-white font-bold rounded-xl transition-colors text-center",
-    borderClassName: "border border-zinc-700",
+    featured: true,
+    borderClassName: "border-4 border-white",
   },
   {
     id: "premium",
     name: "프리미엄",
     badge: {
       text: "PREMIUM",
-      className: "bg-purple-500/20 text-purple-500 text-xs font-bold px-3 py-1 rounded-full",
+      className:
+        "bg-purple-500/20 text-purple-400 text-xs font-black px-3 py-1 rounded-full",
     },
     price: "₩890,000",
     features: [
@@ -82,9 +83,8 @@ const plans: PricingPlan[] = [
       { text: "수료증 발급" },
     ],
     ctaText: "프리미엄 신청하기",
-    ctaClassName:
-      "w-full py-4 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-xl transition-colors text-center",
-    borderClassName: "border border-purple-500/50",
+    featured: false,
+    borderClassName: "border border-zinc-800",
   },
 ];
 
@@ -132,81 +132,119 @@ export default function Pricing(): React.ReactElement {
   ];
 
   return (
-    <section id="pricing" className="bg-black py-20">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        <h2 className="text-4xl font-black text-center">수강료</h2>
-        <p className="text-zinc-400 text-center mt-4">
+    <section id="pricing" className="relative py-24 max-w-3xl mx-auto px-6">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl sm:text-6xl font-black mb-6 uppercase text-white">
+          수강료
+        </h2>
+        <p className="text-zinc-400 text-lg">
           지금이 가장 저렴한 가격입니다
         </p>
+      </div>
 
-        {/* Countdown Timer */}
-        <div className="flex justify-center gap-4 mt-10">
-          {timerUnits.map((unit) => (
-            <div key={unit.label} className="flex flex-col items-center">
-              <div className="bg-zinc-900 border border-zinc-800 p-4 rounded-xl text-3xl font-black text-yellow-500 min-w-[72px] text-center">
-                {mounted ? String(unit.value).padStart(2, "0") : "--"}
-              </div>
-              <span className="text-zinc-500 text-xs mt-1">{unit.label}</span>
+      {/* Countdown Timer */}
+      <div className="flex justify-center gap-4 mb-16">
+        {timerUnits.map((unit) => (
+          <div key={unit.label} className="flex flex-col items-center">
+            <div className="bg-zinc-900 border border-zinc-800 p-4 rounded-xl text-3xl sm:text-4xl font-black text-yellow-500 min-w-[72px] text-center">
+              {mounted ? String(unit.value).padStart(2, "0") : "--"}
             </div>
-          ))}
-        </div>
+            <span className="text-zinc-500 text-xs mt-2">{unit.label}</span>
+          </div>
+        ))}
+      </div>
 
-        {/* Pricing Plans */}
-        <div className="space-y-6 mt-12">
-          {plans.map((plan) => (
-            <div
-              key={plan.id}
-              className={`${plan.borderClassName} bg-zinc-900 rounded-2xl p-8 flex flex-col`}
+      {/* Pricing Plans */}
+      <div className="flex flex-col gap-6">
+        {plans.map((plan) => (
+          <div
+            key={plan.id}
+            className={`${plan.borderClassName} ${
+              plan.featured
+                ? "bg-yellow-500 text-black"
+                : "bg-zinc-900 opacity-70"
+            } rounded-2xl p-8 relative ${plan.featured ? "z-10" : ""}`}
+          >
+            {plan.badge && (
+              <span className={`${plan.badge.className} inline-block mb-4`}>
+                {plan.badge.text}
+              </span>
+            )}
+
+            <h3
+              className={`text-2xl font-black mb-4 ${
+                plan.featured ? "text-black" : "text-white"
+              }`}
             >
-              {plan.badge && (
-                <span className={`${plan.badge.className} self-start mb-4`}>
-                  {plan.badge.text}
+              {plan.name}
+            </h3>
+
+            <div className="mb-6">
+              {plan.originalPrice && (
+                <span
+                  className={`line-through text-lg mr-2 ${
+                    plan.featured ? "text-black/50" : "text-zinc-500"
+                  }`}
+                >
+                  {plan.originalPrice}
                 </span>
               )}
-
-              <h3 className="text-2xl font-bold text-white mb-4">
-                {plan.name}
-              </h3>
-
-              <div className="mb-6">
-                {plan.originalPrice && (
-                  <span className="line-through text-zinc-500 text-lg mr-2">
-                    {plan.originalPrice}
-                  </span>
-                )}
-                <span className="text-3xl font-black text-white">
-                  {plan.price}
+              <span
+                className={`text-5xl sm:text-6xl font-black ${
+                  plan.featured ? "text-black" : "text-white"
+                }`}
+              >
+                {plan.price}
+              </span>
+              {plan.discount && (
+                <span
+                  className={`font-black ml-3 text-lg ${
+                    plan.featured ? "text-red-700" : "text-red-500"
+                  }`}
+                >
+                  {plan.discount}
                 </span>
-                {plan.discount && (
-                  <span className="text-red-500 font-bold ml-3">
-                    {plan.discount}
-                  </span>
-                )}
-              </div>
-
-              <ul className="space-y-3 mb-8 flex-1">
-                {plan.features.map((feature) => (
-                  <li
-                    key={feature.text}
-                    className="flex items-start gap-2 text-zinc-300"
-                  >
-                    <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span>{feature.text}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <a href="#" className={plan.ctaClassName}>
-                {plan.ctaText}
-              </a>
+              )}
             </div>
-          ))}
-        </div>
 
-        <p className="text-zinc-500 text-sm text-center mt-8">
-          💳 카드 결제 / 계좌이체 가능 | 수강 시작 7일 전까지 100% 환불
-        </p>
+            <ul className="space-y-3 mb-8">
+              {plan.features.map((feature) => (
+                <li key={feature.text} className="flex items-start gap-3">
+                  <Check
+                    className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
+                      plan.featured ? "text-black" : "text-green-500"
+                    }`}
+                  />
+                  <span
+                    className={
+                      plan.featured ? "text-black/80" : "text-zinc-300"
+                    }
+                  >
+                    {feature.text}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href="#"
+              className={`block w-full text-center py-4 font-black rounded-xl transition-all text-lg ${
+                plan.featured
+                  ? "bg-black text-yellow-500 hover:bg-zinc-900"
+                  : plan.id === "premium"
+                    ? "bg-purple-600 hover:bg-purple-500 text-white"
+                    : "bg-zinc-700 hover:bg-zinc-600 text-white"
+              }`}
+            >
+              {plan.ctaText}
+            </a>
+          </div>
+        ))}
       </div>
+
+      <p className="text-zinc-500 text-sm text-center mt-10">
+        카드 결제 / 계좌이체 가능 | 수강 시작 7일 전까지 100% 환불
+      </p>
     </section>
   );
 }

@@ -4,7 +4,7 @@ interface WeekItem {
   items: string[];
   result: string;
   markerColor: string;
-  lineColor: string;
+  textColor: string;
 }
 
 const weeks: WeekItem[] = [
@@ -19,7 +19,7 @@ const weeks: WeekItem[] = [
     ],
     result: "나만의 랜딩 페이지 완성",
     markerColor: "bg-yellow-500",
-    lineColor: "border-yellow-500",
+    textColor: "text-yellow-500",
   },
   {
     week: 2,
@@ -32,7 +32,7 @@ const weeks: WeekItem[] = [
     ],
     result: "회원 기능이 있는 웹앱",
     markerColor: "bg-blue-500",
-    lineColor: "border-blue-500",
+    textColor: "text-blue-500",
   },
   {
     week: 3,
@@ -45,7 +45,7 @@ const weeks: WeekItem[] = [
     ],
     result: "핵심 기능이 동작하는 서비스",
     markerColor: "bg-green-500",
-    lineColor: "border-green-500",
+    textColor: "text-green-500",
   },
   {
     week: 4,
@@ -58,60 +58,63 @@ const weeks: WeekItem[] = [
     ],
     result: "실제 서비스 런칭 완료",
     markerColor: "bg-red-500",
-    lineColor: "border-red-500",
+    textColor: "text-red-500",
   },
 ];
 
 export default function Curriculum(): React.ReactElement {
   return (
-    <section id="curriculum" className="bg-zinc-950 py-20">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        <h2 className="text-4xl font-black text-center mb-4">
+    <section
+      id="curriculum"
+      className="py-24 bg-black text-white border-b border-zinc-900"
+    >
+      <div className="max-w-4xl mx-auto px-6">
+        <h2 className="text-3xl sm:text-5xl font-black text-center mb-16 uppercase">
           4주 커리큘럼
         </h2>
-        <p className="text-zinc-400 text-center mb-16">
-          매주 토요일 오전 10시 ~ 오후 1시 (3시간)
-        </p>
 
-        <div className="space-y-12">
+        <div className="flex flex-col gap-6 mb-24">
+          <p className="text-center text-zinc-400 text-lg mb-8">
+            매주 토요일 오전 10시 ~ 오후 1시 (3시간)
+          </p>
+
           {weeks.map((week) => (
-            <div key={week.week} className="relative border-l-2 border-zinc-700 pl-8">
-              {/* Timeline marker */}
-              <div
-                className={`absolute -left-[9px] top-0 w-4 h-4 rounded-full ${week.markerColor} ring-4 ring-zinc-950`}
-              />
+            <div
+              key={week.week}
+              className="bg-zinc-900 p-8 rounded-xl border border-zinc-800"
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <div
+                  className={`w-3 h-3 rounded-full ${week.markerColor}`}
+                />
+                <span
+                  className={`text-sm font-bold uppercase tracking-wider ${week.textColor}`}
+                >
+                  Week {week.week}
+                </span>
+              </div>
 
-              {/* Week label */}
-              <span className={`text-sm font-bold uppercase tracking-wider ${
-                week.markerColor === "bg-yellow-500" ? "text-yellow-500" :
-                week.markerColor === "bg-blue-500" ? "text-blue-500" :
-                week.markerColor === "bg-green-500" ? "text-green-500" :
-                "text-red-500"
-              }`}>
-                Week {week.week}
-              </span>
+              <h3 className="text-xl sm:text-2xl font-black text-white mb-5">
+                {week.title}
+              </h3>
 
-              {/* Card */}
-              <div className="bg-zinc-900/50 p-6 rounded-xl border border-zinc-800 mt-3">
-                <h3 className="text-xl font-bold text-white mb-4">
-                  {week.title}
-                </h3>
+              <ul className="space-y-3 mb-6">
+                {week.items.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 text-zinc-400 text-base sm:text-lg"
+                  >
+                    <span className="text-zinc-600 mt-0.5">·</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
 
-                <ul className="space-y-2 mb-5">
-                  {week.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-zinc-400">
-                      <span className="text-zinc-600 mt-1">·</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div>
-                  <span className="text-sm text-zinc-500 mr-2">결과물:</span>
-                  <span className="bg-zinc-800 inline-block px-3 py-1 rounded text-sm text-yellow-500">
-                    {week.result}
-                  </span>
-                </div>
+              <div className="pt-4 border-t border-zinc-800">
+                <span className="text-sm text-zinc-500 mr-2">결과물</span>
+                <span className="bg-zinc-800 inline-block px-4 py-1.5 rounded-lg text-sm text-yellow-500 font-bold">
+                  {week.result}
+                </span>
               </div>
             </div>
           ))}
